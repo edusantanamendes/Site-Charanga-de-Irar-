@@ -1,0 +1,169 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Administrator {
+  id           String          @id @default(cuid())
+  name         String
+  email        String          @unique
+  passwordHash String
+  failedLogins Int             @default(0)
+  lockedUntil  DateTime?
+  createdAt    DateTime        @default(now())
+  sessions     Session[]
+  resets       PasswordReset[]
+}
+
+model Session {
+  id          String        @id @default(cuid())
+  tokenHash   String        @unique
+  csrfToken   String
+  adminId     String
+  admin       Administrator @relation(fields: [adminId], references: [id], onDelete: Cascade)
+  expiresAt   DateTime
+  createdAt   DateTime      @default(now())
+  @@index([expiresAt])
+}
+
+model PasswordReset {
+  id        String        @id @default(cuid())
+  tokenHash String        @unique
+  adminId   String
+  admin     Administrator @relation(fields: [adminId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  @@index([expiresAt])
+}
+
+model Event {
+  id          String       @id @default(cuid())
+  title       String
+  slug        String       @unique
+  startsAt    DateTime
+  endsAt      DateTime?
+  location    String
+  description String
+  imageUrl    String?
+  status      String       @default("CONFIRMED")
+  published   Boolean      @default(false)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  photographs Photograph[]
+  videos      Video[]
+  @@index([published, startsAt])
+}
+
+model Musician {
+  id         String   @id @default(cuid())
+  name       String
+  instrument String
+  bio        String
+  role       String?
+  imageUrl   String?
+  order      Int      @default(0)
+  published  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  @@index([published, order])
+}
+
+model Category {
+  id          String       @id @default(cuid())
+  name        String       @unique
+  photographs Photograph[]
+  videos      Video[]
+}
+
+model Photograph {
+  id         String    @id @default(cuid())
+  title      String
+  alt        String
+  url        String
+  credit     String?
+  categoryId String?
+  category   Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  eventId    String?
+  event      Event?    @relation(fields: [eventId], references: [id], onDelete: SetNull)
+  order      Int       @default(0)
+  published  Boolean   @default(false)
+  createdAt  DateTime  @default(now())
+  @@index([published, order])
+  @@index([categoryId])
+  @@index([eventId])
+}
+
+model Video {
+  id           String    @id @default(cuid())
+  title        String
+  url          String
+  thumbnailUrl String?
+  description  String
+  credit       String?
+  categoryId   String?
+  category     Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  eventId      String?
+  event        Event?    @relation(fields: [eventId], references: [id], onDelete: SetNull)
+  published    Boolean   @default(false)
+  createdAt    DateTime  @default(now())
+  @@index([published, createdAt])
+  @@index([categoryId])
+  @@index([eventId])
+}
+
+model Message {
+  id             String   @id @default(cuid())
+  name           String
+  email          String
+  phone          String?
+  subject        String
+  body           String
+  status         String   @default("NEW")
+  deliveryStatus String   @default("PENDING")
+  createdAt      DateTime @default(now())
+  @@index([status, createdAt])
+  @@index([deliveryStatus])
+}
+
+model SiteSetting {
+  id            String @id @default("site")
+  name          String @default("Charanga de Irará")
+  tagline       String @default("Tradição, música e cultura que atravessam gerações.")
+  locationLabel String @default("Irará, Bahia")
+  officialEmail String @default("")
+  whatsapp      String @default("")
+  logoUrl       String?
+  heroImageUrl  String?
+  heroImageAlt  String @default("")
+}
+
+model InstitutionalContent {
+  id        String  @id @default(cuid())
+  key       String  @unique
+  title     String
+  body      String
+  section   String  @default("general")
+  year      Int?
+  order     Int     @default(0)
+  published Boolean @default(true)
+  @@index([section, published, order])
+}
+
+model SocialLink {
+  id        String  @id @default(cuid())
+  label     String
+  url       String
+  published Boolean @default(false)
+  order     Int     @default(0)
+}
+
+model Upload {
+  id        String   @id @default(cuid())
+  filename  String   @unique
+  url       String   @unique
+  size      Int
+  createdAt DateTime @default(now())
+}

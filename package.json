@@ -1,0 +1,65 @@
+{
+  "name": "charanga-de-irara",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:frontend": "vite --config frontend/vite.config.js --host 127.0.0.1 --port 3000",
+    "dev:backend": "node --watch backend/src/server.js",
+    "postinstall": "prisma generate --schema backend/prisma/schema.prisma",
+    "build": "vite build --config frontend/vite.config.js",
+    "start": "node backend/src/server.js",
+    "db:generate": "prisma generate --schema backend/prisma/schema.prisma",
+    "db:migrate": "prisma migrate deploy --schema backend/prisma/schema.prisma",
+    "db:seed": "node backend/prisma/seed.js",
+    "db:check": "node scripts/check-schema.mjs",
+    "brand:assets": "node scripts/brand-assets.mjs",
+    "admin:create": "node backend/scripts/create-admin.js",
+    "messages:retry": "node backend/scripts/retry-messages.js",
+    "test": "node --test --test-concurrency=1 tests/*.test.js",
+    "test:integration": "node --test --test-concurrency=1 tests/integration.test.js",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.2.8",
+    "@fontsource/manrope": "^5.2.8",
+    "@fontsource/playfair-display": "^5.3.0",
+    "@prisma/client": "6.19.3",
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "lucide-react": "^0.468.0",
+    "multer": "^2.0.2",
+    "nodemailer": "^10.1.7",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.4",
+    "sharp": "^0.35.5",
+    "zod": "^4.1.12"
+  },
+  "overrides": {
+    "deepmerge-ts": "^8.0.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@electric-sql/pglite": "^0.3.14",
+    "@electric-sql/pglite-socket": "^0.0.19",
+    "@playwright/test": "^1.56.1",
+    "@tailwindcss/vite": "^4.1.16",
+    "@vitejs/plugin-react": "^5.0.4",
+    "prettier": "^3.9.10",
+    "prisma": "6.19.3",
+    "smtp-server": "^3.20.2",
+    "supertest": "^7.1.4",
+    "tailwindcss": "^4.1.16",
+    "vite": "^7.1.12"
+  }
+}

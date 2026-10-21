@@ -1,0 +1,80 @@
+/* Azul amostrado da logomarca original, sem recoloração da imagem. */
+:root {
+  --color-primary: #04006c;
+  --color-primary-dark: #05054f;
+  --color-primary-hover: #17138f;
+  --color-primary-light: #eeedf7;
+  --color-primary-soft: #f5f4fa;
+  --color-primary-mid: #c8d0ff;
+  --color-background: #ffffff;
+  --color-background-soft: #f5f5f2;
+  --color-surface: #ffffff;
+  --color-text: #252b3a;
+  --color-text-muted: #5c6069;
+  --color-text-on-primary: #ffffff;
+  --color-text-on-primary-muted: #d3daf4;
+  --color-text-on-primary-soft: #b9c6ef;
+  --color-border: #dededb;
+  --color-border-strong: #b8bbc4;
+  --color-border-soft: #e8e8e5;
+  --color-border-on-primary: #ffffff2e;
+  --color-focus: #3844c8;
+  --color-focus-halo: #3844c833;
+  --color-selection: #c8d0ff80;
+  --color-header-glass: #fffffff5;
+  --color-primary-line: #04006c1a;
+  --color-primary-line-soft: #04006c0d;
+  --color-inverse-hover: #ffffff14;
+  --color-inverse-hover-strong: #ffffff26;
+  --color-modal-scrim: #05052edb;
+  --color-photo-overlay: #05054fcf;
+  --color-success: #285537;
+  --color-success-background: #eaf3ec;
+  --color-success-border: #c0d5c6;
+  --color-error: #963c38;
+  --color-error-hover: #7b2d2a;
+  --color-error-background: #fbefed;
+  --color-error-border: #e9c4be;
+  --color-skeleton: #e5e9f3;
+  --font-sans: "Manrope", sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-size-body: 1rem;
+  --font-size-small: 0.9375rem;
+  --font-size-label: 0.8125rem;
+  --font-size-caption: 0.75rem;
+  --font-size-hero: clamp(3.75rem, 7.2vw, 6.5rem);
+  --line-height-body: 1.8;
+  --line-height-heading: 1.15;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --content-width: 1240px;
+  --page-gutter: clamp(1.25rem, 4.2vw, 4rem);
+  --section-space: clamp(2.75rem, 4.8vw, 4.25rem);
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --shadow-dialog: 0 30px 100px #05054f40;
+  --transition-fast: 160ms ease;
+  --transition-normal: 240ms ease;
+}
+
+/* Tailwind CSS 4 compartilha os tokens do CSS. */
+@theme inline {
+  --color-brand: var(--color-primary);
+  --color-brand-dark: var(--color-primary-dark);
+  --color-brand-light: var(--color-primary-light);
+  --color-canvas: var(--color-background-soft);
+}

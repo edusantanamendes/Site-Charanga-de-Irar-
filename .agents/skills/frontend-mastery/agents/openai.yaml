@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Mastery"
+  short_description: "UI/UX, identidade e front-end com acabamento profissional"
+  default_prompt: "Use $frontend-mastery para analisar este projeto e executar a tarefa de interface solicitada, preservando sua marca, stack e funcionalidades."
