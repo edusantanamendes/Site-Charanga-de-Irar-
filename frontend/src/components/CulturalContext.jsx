@@ -1,5 +1,5 @@
 import { useSite } from "../contexts/SiteContext";
-import { Eyebrow, TextLink } from "./UI";
+import { TextLink } from "./UI";
 import OfficialLogo from "./OfficialLogo";
 import { editorialTitle } from "../config/editorial";
 
@@ -21,10 +21,7 @@ export function MusicianIntroduction() {
     <article className="musician-introduction">
       <div className="musician-introduction-heading">
         <OfficialLogo decorative />
-        <div>
-          <Eyebrow>Música e comunidade</Eyebrow>
-          <h2>{item.title}</h2>
-        </div>
+        <h2>{item.title}</h2>
       </div>
       <p className="preserve-lines">{item.body}</p>
       <TextLink to="/historia">Conheça essa história</TextLink>
@@ -45,12 +42,9 @@ export function TraditionContext() {
       aria-labelledby="programme-context-title"
     >
       <div className="programme-context-heading">
-        <div>
-          <Eyebrow>Tradições da Charanga</Eyebrow>
-          <h2 id="programme-context-title">
-            {editorialTitle("tradition-heading", heading?.title)}
-          </h2>
-        </div>
+        <h2 id="programme-context-title">
+          {editorialTitle("tradition-heading", heading?.title)}
+        </h2>
         <p>{heading?.body}</p>
       </div>
       <div className="programme-traditions">

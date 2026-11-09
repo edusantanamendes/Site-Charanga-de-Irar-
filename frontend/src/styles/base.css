@@ -18,6 +18,7 @@ input,
 select,
 textarea {
   font: inherit;
+  caret-color: var(--color-primary);
 }
 button,
 a {
@@ -130,9 +131,6 @@ main:focus {
 .chapter-label {
   margin-bottom: 15px;
   color: var(--color-text-muted);
-}
-.eyebrow-light {
-  color: var(--color-text-on-primary-muted);
 }
 .button {
   display: inline-flex;
@@ -289,6 +287,9 @@ main:focus {
   font-size: var(--font-size-small);
   font-weight: 400;
   line-height: 1.5;
+}
+.field :is(input, textarea)::placeholder {
+  color: var(--color-text-muted);
 }
 .field textarea {
   resize: vertical;

@@ -5,7 +5,6 @@ import { useSite, useRequest } from "../contexts/SiteContext";
 import {
   ButtonLink,
   TextLink,
-  Eyebrow,
   Loading,
   ErrorState,
   Lightbox,
@@ -51,15 +50,14 @@ export function Home() {
       >
         <div className="container hero-grid">
           <div className="hero-copy">
-            <Eyebrow>
-              <span className="eyebrow-line" />
-              {site.settings?.locationLabel || "Irará, Bahia"} · Cultura popular
-            </Eyebrow>
             <h1>
               Charanga
               <br />
               <span>de Irará</span>
             </h1>
+            <p className="hero-location">
+              {site.settings?.locationLabel || "Irará, Bahia"}
+            </p>
             <p className="hero-subtitle">
               {hero?.title ||
                 "Tradição, música e cultura que atravessam gerações."}
@@ -86,23 +84,23 @@ export function Home() {
             )}
           </div>
         </div>
-        <div className="container hero-footnote">
+      </section>
+      <nav className="home-index" aria-label="Nesta página">
+        <div className="container">
           <a href="#nossa-historia">
-            Conheça a Charanga <ArrowDown size={18} />
+            História <ArrowDown size={16} aria-hidden="true" />
+          </a>
+          <a href="#tradicoes">
+            Tradições <ArrowDown size={16} aria-hidden="true" />
+          </a>
+          <a href="#acervo">
+            Acervo <ArrowDown size={16} aria-hidden="true" />
+          </a>
+          <a href="#agenda">
+            Agenda <ArrowDown size={16} aria-hidden="true" />
           </a>
         </div>
-      </section>
-      <div className="institutional-strip">
-        <div className="container">
-          <span>Tradição</span>
-          <i aria-hidden="true">•</i>
-          <span>Música</span>
-          <i aria-hidden="true">•</i>
-          <span>Cultura</span>
-          <i aria-hidden="true">•</i>
-          <span>Irará, Bahia</span>
-        </div>
-      </div>
+      </nav>
       {site.error && (
         <div className="container">
           <ErrorState error={site.error} reload={site.reload} />
@@ -111,7 +109,6 @@ export function Home() {
       <section className="section history-preview" id="nossa-historia">
         <div className="container history-grid">
           <div className="history-heading">
-            <Eyebrow>Nossa história</Eyebrow>
             <h2>{editorialTitle("history-intro", history?.title)}</h2>
           </div>
           <div className="history-text">
@@ -128,18 +125,15 @@ export function Home() {
           )}
         </div>
       </section>
-      <section className="section traditions">
+      <section className="section traditions" id="tradicoes">
         <div className="container">
           <div className="section-top">
-            <div>
-              <Eyebrow>Nossas tradições</Eyebrow>
-              <h2>
-                {editorialTitle(
-                  "tradition-heading",
-                  site.content("tradition-heading")?.title,
-                )}
-              </h2>
-            </div>
+            <h2>
+              {editorialTitle(
+                "tradition-heading",
+                site.content("tradition-heading")?.title,
+              )}
+            </h2>
             <p>{site.content("tradition-heading")?.body}</p>
           </div>
           <div
@@ -151,7 +145,6 @@ export function Home() {
                 label="Alvoradas · registro oficial"
               />
               <div>
-                <span className="chapter-label">Ao amanhecer</span>
                 <h3>
                   {site.content("alvoradas")?.title || "Alvoradas musicais"}
                 </h3>
@@ -166,13 +159,11 @@ export function Home() {
                   label="Lavagem de Irará"
                 />
               )}
-              <span className="chapter-label">Nas ruas de Irará</span>
               <h3>{site.content("lavagem")?.title || "Lavagem de Irará"}</h3>
               <p>{site.content("lavagem")?.body}</p>
               <TextLink to="/historia">Música e tradição popular</TextLink>
             </article>
             <article className="tradition-note">
-              <span className="chapter-label">Entre gerações</span>
               <h3>{site.content("cultura")?.title || "Cultura e tradição"}</h3>
               <p>{site.content("cultura")?.body}</p>
               <TextLink to="/musicos">Conheça nossos músicos</TextLink>
@@ -183,17 +174,18 @@ export function Home() {
       <div
         className={`container home-programme ${media.length ? "has-media" : ""}`}
       >
-        <section className="home-gallery" aria-labelledby="home-gallery-title">
+        <section
+          className="home-gallery"
+          id="acervo"
+          aria-labelledby="home-gallery-title"
+        >
           <div className="section-top">
-            <div>
-              <Eyebrow>Acervo visual</Eyebrow>
-              <h2 id="home-gallery-title">
-                {editorialTitle(
-                  "gallery-heading",
-                  site.content("gallery-heading")?.title,
-                )}
-              </h2>
-            </div>
+            <h2 id="home-gallery-title">
+              {editorialTitle(
+                "gallery-heading",
+                site.content("gallery-heading")?.title,
+              )}
+            </h2>
             <TextLink to="/galeria">Ver fotografias e vídeos</TextLink>
           </div>
           {gallery.loading ? (
@@ -212,7 +204,6 @@ export function Home() {
             </div>
           ) : (
             <ArchiveNotice>
-              <span className="chapter-label">Acervo em preparação</span>
               <h3>Fotografias e vídeos oficiais.</h3>
               <p>
                 Os registros de apresentações, cortejos e encontros serão
@@ -222,17 +213,18 @@ export function Home() {
             </ArchiveNotice>
           )}
         </section>
-        <section className="agenda-preview" aria-labelledby="home-agenda-title">
+        <section
+          className="agenda-preview"
+          id="agenda"
+          aria-labelledby="home-agenda-title"
+        >
           <div className="section-top">
-            <div>
-              <Eyebrow>Próximas apresentações</Eyebrow>
-              <h2 id="home-agenda-title">
-                {editorialTitle(
-                  "events-heading",
-                  site.content("events-heading")?.title,
-                )}
-              </h2>
-            </div>
+            <h2 id="home-agenda-title">
+              {editorialTitle(
+                "events-heading",
+                site.content("events-heading")?.title,
+              )}
+            </h2>
             <TextLink to="/eventos">Agenda completa</TextLink>
           </div>
           {events.loading ? (
