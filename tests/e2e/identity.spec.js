@@ -68,9 +68,20 @@ test("identidade oficial: original, favicon CH, marca nas páginas e painel", as
       .locator(".hero-actions")
       .getByRole("link", { name: "Entre em contato" }),
   ).toHaveAttribute("href", "/contato");
-  await expect(page.locator(".institutional-strip")).toContainText(
-    "Irará, Bahia",
-  );
+  await expect(page.locator(".hero-location")).toContainText("Irará, Bahia");
+  const homeIndex = page.getByRole("navigation", { name: "Nesta página" });
+  for (const [label, id] of [
+    ["História", "nossa-historia"],
+    ["Tradições", "tradicoes"],
+    ["Acervo", "acervo"],
+    ["Agenda", "agenda"],
+  ]) {
+    await expect(homeIndex.getByRole("link", { name: label })).toHaveAttribute(
+      "href",
+      `#${id}`,
+    );
+    await expect(page.locator(`#${id}`)).toBeVisible();
+  }
   if (testInfo.project.name === "desktop") {
     await expect(page.locator(".desktop-nav")).toBeVisible();
     await expect(page.getByRole("button", { name: "Abrir menu" })).toBeHidden();
@@ -86,7 +97,8 @@ test("identidade oficial: original, favicon CH, marca nas páginas e painel", as
   await capture("home-viewport");
   await page.locator(".footer").scrollIntoViewIfNeeded();
   await expect(page.locator(".footer .official-logo")).toBeVisible();
-  await expect(page.locator(".header")).toHaveClass(/header-scrolled/);
+  await expect(page.locator(".header")).toBeInViewport();
+  expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
 
   await page.goto("/admin/login");
   await expect(

@@ -39,15 +39,8 @@ export function Brand({ footer = false }) {
 export default function PublicLayout() {
   const [open, setOpen] = useState(false);
   const menuToggle = useRef(null);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const { settings, socials } = useSite();
-  useEffect(() => {
-    const update = () => setScrolled(window.scrollY > 12);
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    return () => window.removeEventListener("scroll", update);
-  }, []);
   useEffect(() => {
     setOpen(false);
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -75,7 +68,7 @@ export default function PublicLayout() {
       <a className="skip-link" href="#conteudo">
         Pular para o conteúdo
       </a>
-      <header className={`header ${scrolled ? "header-scrolled" : ""}`}>
+      <header className="header">
         <div className="container header-inner">
           <Brand />
           <nav className="desktop-nav" aria-label="Navegação principal">
@@ -87,7 +80,7 @@ export default function PublicLayout() {
           </nav>
           <NavLink className="header-contact" to="/contato">
             Contato
-            <ArrowUpRight size={16} />
+            <ArrowUpRight size={16} aria-hidden="true" />
           </NavLink>
           <button
             ref={menuToggle}
@@ -151,7 +144,7 @@ export default function PublicLayout() {
               </div>
             </div>
             <div className="footer-links">
-              <span>EXPLORE A CHARANGA</span>
+              <span>Navegação</span>
               <div>
                 {[...links.slice(1), ["/contato", "Contato"]].map(
                   ([path, label]) => (
@@ -163,7 +156,7 @@ export default function PublicLayout() {
               </div>
             </div>
             <div className="footer-social">
-              <span>FIQUE POR PERTO</span>
+              <span>Redes e contato</span>
               {socials.length ? (
                 socials.map((social) => (
                   <a

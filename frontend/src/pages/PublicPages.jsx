@@ -14,7 +14,6 @@ import { useSite, useRequest } from "../contexts/SiteContext";
 import {
   ButtonLink,
   TextLink,
-  Eyebrow,
   PageHeading,
   EmptyState,
   Loading,
@@ -140,7 +139,6 @@ export function Gallery() {
           ) : category === "all" && type === "all" ? (
             <div className="gallery-preparation">
               <ArchiveNotice>
-                <Eyebrow>Acervo em preparação</Eyebrow>
                 <h2>Apresentações, cortejos e memória.</h2>
                 <p>
                   Este espaço reunirá fotografias e vídeos oficiais da Charanga,
@@ -377,7 +375,6 @@ export function Musicians() {
             <div className="roster-preparation">
               <MusicianIntroduction />
               <div className="roster-notice">
-                <Eyebrow>Os integrantes</Eyebrow>
                 <h2>Quem faz a Charanga.</h2>
                 <p>
                   Os perfis oficiais dos músicos estão em preparação. Aqui serão
@@ -547,7 +544,6 @@ export function Contact() {
             </p>
           </form>
           <aside className="contact-aside">
-            <Eyebrow>FALE COM A CHARANGA</Eyebrow>
             <h2>
               {editorialTitle("contact-aside", content("contact-aside")?.title)}
             </h2>
@@ -672,8 +668,9 @@ export function NotFound() {
   );
   return (
     <section className="not-found container">
-      <span className="not-found-number">404</span>
-      <Eyebrow>Erro 404</Eyebrow>
+      <span className="not-found-number" aria-hidden="true">
+        404
+      </span>
       <h1>Página não encontrada</h1>
       <p>A página que você procura não foi encontrada.</p>
       <ButtonLink to="/">Voltar ao início</ButtonLink>

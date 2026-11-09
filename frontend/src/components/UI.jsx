@@ -21,7 +21,7 @@ export function ButtonLink({
       className={`button ${secondary ? "button-secondary" : ""} ${className}`}
     >
       {children}
-      {arrow && <ArrowUpRight size={17} />}
+      {arrow && <ArrowUpRight size={17} aria-hidden="true" />}
     </Link>
   );
 }
@@ -30,11 +30,6 @@ export function TextLink({ to, children }) {
     <Link className="text-link" to={to}>
       {children}
     </Link>
-  );
-}
-export function Eyebrow({ children, light = false }) {
-  return (
-    <p className={`eyebrow ${light ? "eyebrow-light" : ""}`}>{children}</p>
   );
 }
 export function PageHeading({ label, title, children, variant = "default" }) {

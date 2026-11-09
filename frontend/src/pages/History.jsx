@@ -1,11 +1,5 @@
 import { useSite, useRequest } from "../contexts/SiteContext";
-import {
-  PageHeading,
-  Eyebrow,
-  TextLink,
-  Loading,
-  ErrorState,
-} from "../components/UI";
+import { PageHeading, TextLink, Loading, ErrorState } from "../components/UI";
 import { ArchiveFigure } from "../components/Editorial";
 import { editorialTitle } from "../config/editorial";
 import usePageMeta from "../hooks/usePageMeta";
@@ -79,7 +73,6 @@ export function History() {
             )}
             {timeline.length > 0 && (
               <section className="timeline">
-                <Eyebrow>Contexto histórico</Eyebrow>
                 <h2>Raízes musicais de Irará</h2>
                 {timeline.map((item) => (
                   <div className="timeline-item" key={item.id}>

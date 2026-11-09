@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Play } from "lucide-react";
 import { useSite } from "../contexts/SiteContext";
-import { ButtonLink, Eyebrow } from "./UI";
+import { ButtonLink } from "./UI";
 import { editorialTitle } from "../config/editorial";
 import { MusicalStaff } from "./MusicalIdentity";
 
@@ -79,7 +79,6 @@ export function Invitation() {
     <section className="invitation">
       <div className="container invitation-inner">
         <div>
-          <Eyebrow>Apresentações e parcerias</Eyebrow>
           <h2>{editorialTitle("invitation", item?.title)}</h2>
           <p>
             {item?.body ||
