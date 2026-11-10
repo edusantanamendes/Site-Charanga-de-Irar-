@@ -45,43 +45,46 @@ export function Home() {
   usePageMeta("Tradição, música e cultura", heroDescription(hero?.body));
   return (
     <>
-      <section
-        className={`hero ${!site.settings?.heroImageUrl ? "hero-no-photo" : ""}`}
-      >
-        <div className="container hero-grid">
-          <div className="hero-copy">
+      <section className="hero">
+        <div className="container">
+          <div className="hero-masthead">
             <h1>
-              Charanga
-              <br />
-              <span>de Irará</span>
+              Charanga <span>de Irará</span>
             </h1>
-            <p className="hero-location">
-              {site.settings?.locationLabel || "Irará, Bahia"}
-            </p>
-            <p className="hero-subtitle">
-              {hero?.title ||
-                "Tradição, música e cultura que atravessam gerações."}
-            </p>
-            <p className="hero-description">{heroDescription(hero?.body)}</p>
-            <div className="hero-actions">
-              <ButtonLink to="/historia">Conheça nossa história</ButtonLink>
-              <ButtonLink to="/contato" secondary arrow={false}>
-                Entre em contato
-              </ButtonLink>
+            <div className="hero-provenance">
+              <p>Filarmônica 25 de Dezembro</p>
+              <p className="hero-location">
+                {site.settings?.locationLabel || "Irará, Bahia"}
+              </p>
             </div>
           </div>
-          <div className="hero-art">
-            {site.settings?.heroImageUrl ? (
-              <ArchiveFigure
-                className="hero-photo"
-                src={site.settings?.heroImageUrl}
-                alt={site.settings?.heroImageAlt}
-                label="Charanga de Irará · registro de apresentação"
-                priority
-              />
-            ) : (
-              <BrandComposition />
-            )}
+          <div className="hero-grid">
+            <div className="hero-copy">
+              <p className="hero-subtitle">
+                {hero?.title ||
+                  "Tradição, música e cultura que atravessam gerações."}
+              </p>
+              <p className="hero-description">{heroDescription(hero?.body)}</p>
+              <div className="hero-actions">
+                <ButtonLink to="/historia">Conheça nossa história</ButtonLink>
+                <ButtonLink to="/contato" secondary arrow={false}>
+                  Entre em contato
+                </ButtonLink>
+              </div>
+            </div>
+            <div className="hero-art">
+              {site.settings?.heroImageUrl ? (
+                <ArchiveFigure
+                  className="hero-photo"
+                  src={site.settings?.heroImageUrl}
+                  alt={site.settings?.heroImageAlt}
+                  label="Charanga de Irará · registro de apresentação"
+                  priority
+                />
+              ) : (
+                <BrandComposition />
+              )}
+            </div>
           </div>
         </div>
       </section>
@@ -126,7 +129,7 @@ export function Home() {
         </div>
       </section>
       <section className="section traditions" id="tradicoes">
-        <div className="container">
+        <div className="container traditions-inner">
           <div className="section-top">
             <h2>
               {editorialTitle(
@@ -136,9 +139,7 @@ export function Home() {
             </h2>
             <p>{site.content("tradition-heading")?.body}</p>
           </div>
-          <div
-            className={`tradition-layout ${photoFor("alvorada") ? "has-lead-photo" : ""}`}
-          >
+          <div className="tradition-layout">
             <article className="tradition-lead">
               <ArchiveFigure
                 photo={photoFor("alvorada")}

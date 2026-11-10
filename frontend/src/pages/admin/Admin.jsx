@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Link,
   NavLink,
@@ -61,10 +61,56 @@ export function AdminLayout() {
   const auth = useAuth();
   const [open, setOpen] = useState(false);
   const [error, setError] = useState("");
+  const [mobile, setMobile] = useState(
+    () => window.matchMedia("(max-width: 900px)").matches,
+  );
+  const sidebar = useRef(null);
+  const menuToggle = useRef(null);
   const location = useLocation();
   useEffect(() => {
     setOpen(false);
   }, [location.pathname]);
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 900px)");
+    const update = () => {
+      setMobile(media.matches);
+      setOpen(false);
+    };
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+  useEffect(() => {
+    if (!open || !mobile) return;
+    const before = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const controls = () => [
+      ...sidebar.current.querySelectorAll("a[href], button"),
+    ];
+    controls()[0]?.focus();
+    const handler = (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setOpen(false);
+      }
+      if (event.key === "Tab") {
+        const items = controls();
+        const target = event.shiftKey ? items.at(-1) : items[0];
+        if (
+          (event.shiftKey && document.activeElement === items[0]) ||
+          (!event.shiftKey && document.activeElement === items.at(-1))
+        ) {
+          event.preventDefault();
+          target?.focus();
+        }
+      }
+    };
+    document.addEventListener("keydown", handler);
+    return () => {
+      document.body.style.overflow = before;
+      document.removeEventListener("keydown", handler);
+      menuToggle.current?.focus();
+    };
+  }, [open, mobile]);
   if (auth.loading)
     return (
       <div className="container section">
@@ -80,7 +126,25 @@ export function AdminLayout() {
   if (!auth.user) return <Navigate to="/admin/login" replace />;
   return (
     <div className="admin-shell">
-      <aside className={`admin-sidebar ${open ? "admin-sidebar-open" : ""}`}>
+      <a className="skip-link" href="#admin-conteudo">
+        Pular para o conteúdo
+      </a>
+      <aside
+        id="admin-navigation"
+        ref={sidebar}
+        className={`admin-sidebar ${open ? "admin-sidebar-open" : ""}`}
+        inert={mobile && !open}
+        role={mobile && open ? "dialog" : undefined}
+        aria-modal={mobile && open ? true : undefined}
+        aria-label="Navegação administrativa"
+      >
+        <button
+          className="icon-button admin-sidebar-close"
+          aria-label="Fechar navegação"
+          onClick={() => setOpen(false)}
+        >
+          <X size={20} />
+        </button>
         <Link to="/admin" className="admin-brand">
           <OfficialLogo decorative priority />
           <span>
@@ -101,18 +165,20 @@ export function AdminLayout() {
         </Link>
       </aside>
       {open && (
-        <button
+        <div
           className="sidebar-scrim"
           onClick={() => setOpen(false)}
-          aria-label="Fechar navegação"
+          aria-hidden="true"
         />
       )}
-      <div className="admin-main">
+      <div className="admin-main" inert={mobile && open}>
         <header className="admin-header">
           <button
+            ref={menuToggle}
             className="icon-button admin-menu"
             aria-label="Alternar navegação"
             aria-expanded={open}
+            aria-controls="admin-navigation"
             onClick={() => setOpen(!open)}
           >
             <Menu />
@@ -133,7 +199,7 @@ export function AdminLayout() {
             </button>
           </div>
         </header>
-        <main className="admin-content">
+        <main id="admin-conteudo" className="admin-content" tabIndex="-1">
           {error && (
             <p role="alert" className="form-alert error">
               {error}
@@ -215,7 +281,6 @@ export function Login({ mode = "login" }) {
         </Link>
         <form onSubmit={submit} className="login-form" key={mode}>
           <OfficialLogo className="login-mobile-logo" priority />
-          <p className="eyebrow">ÁREA ADMINISTRATIVA</p>
           <h1>
             {reset
               ? "Uma nova senha."
@@ -319,7 +384,6 @@ export function Dashboard() {
     <>
       <div className="admin-page-heading">
         <div>
-          <p className="eyebrow">PAINEL DA CHARANGA</p>
           <h1>Olá, {auth.user.name.split(" ")[0]}.</h1>
           <p>A nossa história continua. Vamos cuidar dela?</p>
         </div>
@@ -437,7 +501,7 @@ export function Dashboard() {
   );
 }
 
-function ImageUpload({ field, value, onChange }) {
+function ImageUpload({ field, value, onChange, onBusyChange }) {
   const [state, setState] = useState({ busy: false, error: "" });
   async function upload(event) {
     const file = event.target.files[0];
@@ -447,6 +511,7 @@ function ImageUpload({ field, value, onChange }) {
       return;
     }
     setState({ busy: true, error: "" });
+    onBusyChange(true);
     try {
       const form = new FormData();
       form.append("image", file);
@@ -455,6 +520,8 @@ function ImageUpload({ field, value, onChange }) {
       setState({ busy: false, error: "" });
     } catch (error) {
       setState({ busy: false, error: error.message });
+    } finally {
+      onBusyChange(false);
     }
     event.target.value = "";
   }
@@ -489,7 +556,8 @@ function ImageUpload({ field, value, onChange }) {
             Remover seleção
           </button>
         )}
-        <small>
+        <small role={state.busy ? "status" : undefined}>
+          {state.busy && "Enviando imagem. Aguarde antes de salvar. "}
           JPEG, PNG ou WebP · até 8 MB. A imagem será otimizada e os metadados
           removidos.
         </small>
@@ -512,6 +580,8 @@ function EditorForm({
   categories = [],
   events = [],
 }) {
+  const [uploads, setUploads] = useState({});
+  const uploading = Object.values(uploads).some(Boolean);
   const [values, setValues] = useState(() =>
     Object.fromEntries(
       fields.map((field) => {
@@ -532,6 +602,7 @@ function EditorForm({
   }
   function submit(event) {
     event.preventDefault();
+    if (busy || uploading) return;
     const output = { ...values };
     for (const field of fields) {
       if (field.type === "number")
@@ -558,6 +629,12 @@ function EditorForm({
                 field={field}
                 value={values[field.name]}
                 onChange={(value) => change(field.name, value)}
+                onBusyChange={(pending) =>
+                  setUploads((current) => ({
+                    ...current,
+                    [field.name]: pending,
+                  }))
+                }
               />
             );
           const props = {
@@ -622,9 +699,13 @@ function EditorForm({
         })}
       </div>
       <div className="editor-actions">
-        <button className="button" disabled={busy} type="submit">
+        <button className="button" disabled={busy || uploading} type="submit">
           <Save size={17} />
-          {busy ? "Salvando…" : "Salvar alterações"}
+          {busy
+            ? "Salvando…"
+            : uploading
+              ? "Aguarde o envio da imagem…"
+              : "Salvar alterações"}
         </button>
         {onCancel && (
           <button
@@ -728,7 +809,6 @@ export function ResourcePage() {
     <>
       <div className="admin-page-heading">
         <div>
-          <p className="eyebrow">GESTÃO DO SITE</p>
           <h1>{config.title}</h1>
           <p>{config.description}</p>
         </div>
@@ -891,7 +971,6 @@ export function ResourcePage() {
           }}
           className="editor-dialog"
         >
-          <p className="eyebrow">{config.title}</p>
           <h2>
             {editor.id ? "Editar" : "Adicionar"} {config.singular}
           </h2>
@@ -997,7 +1076,6 @@ export function SettingsPage() {
     <>
       <div className="admin-page-heading">
         <div>
-          <p className="eyebrow">IDENTIDADE E CONTATOS</p>
           <h1>Configurações</h1>
           <p>Os contatos só aparecem no site depois que você os cadastrar.</p>
         </div>

@@ -29,6 +29,7 @@ export function TextLink({ to, children }) {
   return (
     <Link className="text-link" to={to}>
       {children}
+      <ArrowUpRight size={16} aria-hidden="true" />
     </Link>
   );
 }
@@ -36,11 +37,11 @@ export function PageHeading({ label, title, children, variant = "default" }) {
   return (
     <section className={`page-heading page-heading-${variant}`}>
       <div className="container">
-        <div className="page-breadcrumb">
+        <nav className="page-breadcrumb" aria-label="Caminho da página">
           <Link to="/">Início</Link>
           <span aria-hidden="true">/</span>
           <span>{label}</span>
-        </div>
+        </nav>
         <h1>{title}</h1>
         {children && <p className="page-intro">{children}</p>}
       </div>

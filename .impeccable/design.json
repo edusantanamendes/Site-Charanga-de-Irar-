@@ -1,0 +1,604 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-09T22:58:27.030Z",
+  "title": "Design System: Charanga de Irará",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Azul institucional",
+        "tonalRamp": [
+          "oklch(15.00% 0.16494 265.78)",
+          "oklch(26.43% 0.16494 265.78)",
+          "oklch(37.86% 0.16494 265.78)",
+          "oklch(49.29% 0.16494 265.78)",
+          "oklch(60.71% 0.16494 265.78)",
+          "oklch(72.14% 0.16494 265.78)",
+          "oklch(83.57% 0.16494 265.78)",
+          "oklch(95.00% 0.16494 265.78)"
+        ]
+      },
+      "primary-dark": {
+        "role": "primary",
+        "displayName": "Azul profundo",
+        "tonalRamp": [
+          "oklch(15.00% 0.12585 267.85)",
+          "oklch(26.43% 0.12585 267.85)",
+          "oklch(37.86% 0.12585 267.85)",
+          "oklch(49.29% 0.12585 267.85)",
+          "oklch(60.71% 0.12585 267.85)",
+          "oklch(72.14% 0.12585 267.85)",
+          "oklch(83.57% 0.12585 267.85)",
+          "oklch(95.00% 0.12585 267.85)"
+        ]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Azul de interação",
+        "tonalRamp": [
+          "oklch(15.00% 0.18785 269.81)",
+          "oklch(26.43% 0.18785 269.81)",
+          "oklch(37.86% 0.18785 269.81)",
+          "oklch(49.29% 0.18785 269.81)",
+          "oklch(60.71% 0.18785 269.81)",
+          "oklch(72.14% 0.18785 269.81)",
+          "oklch(83.57% 0.18785 269.81)",
+          "oklch(95.00% 0.18785 269.81)"
+        ]
+      },
+      "primary-light": {
+        "role": "primary",
+        "displayName": "Azul claro",
+        "tonalRamp": [
+          "oklch(15.00% 0.01412 268.49)",
+          "oklch(26.43% 0.01412 268.49)",
+          "oklch(37.86% 0.01412 268.49)",
+          "oklch(49.29% 0.01412 268.49)",
+          "oklch(60.71% 0.01412 268.49)",
+          "oklch(72.14% 0.01412 268.49)",
+          "oklch(83.57% 0.01412 268.49)",
+          "oklch(95.00% 0.01412 268.49)"
+        ]
+      },
+      "primary-soft": {
+        "role": "primary",
+        "displayName": "Azul suave",
+        "tonalRamp": [
+          "oklch(15.00% 0.00700 268.55)",
+          "oklch(26.43% 0.00700 268.55)",
+          "oklch(37.86% 0.00700 268.55)",
+          "oklch(49.29% 0.00700 268.55)",
+          "oklch(60.71% 0.00700 268.55)",
+          "oklch(72.14% 0.00700 268.55)",
+          "oklch(83.57% 0.00700 268.55)",
+          "oklch(95.00% 0.00700 268.55)"
+        ]
+      },
+      "primary-mid": {
+        "role": "primary",
+        "displayName": "Azul de foco inverso",
+        "tonalRamp": [
+          "oklch(15.00% 0.06576 277.37)",
+          "oklch(26.43% 0.06576 277.37)",
+          "oklch(37.86% 0.06576 277.37)",
+          "oklch(49.29% 0.06576 277.37)",
+          "oklch(60.71% 0.06576 277.37)",
+          "oklch(72.14% 0.06576 277.37)",
+          "oklch(83.57% 0.06576 277.37)",
+          "oklch(95.00% 0.06576 277.37)"
+        ]
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Branco de base",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 0)",
+          "oklch(26.43% 0.00000 0)",
+          "oklch(37.86% 0.00000 0)",
+          "oklch(49.29% 0.00000 0)",
+          "oklch(60.71% 0.00000 0)",
+          "oklch(72.14% 0.00000 0)",
+          "oklch(83.57% 0.00000 0)",
+          "oklch(95.00% 0.00000 0)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papel frio",
+        "tonalRamp": [
+          "oklch(15.00% 0.00702 268.55)",
+          "oklch(26.43% 0.00702 268.55)",
+          "oklch(37.86% 0.00702 268.55)",
+          "oklch(49.29% 0.00702 268.55)",
+          "oklch(60.71% 0.00702 268.55)",
+          "oklch(72.14% 0.00702 268.55)",
+          "oklch(83.57% 0.00702 268.55)",
+          "oklch(95.00% 0.00702 268.55)"
+        ]
+      },
+      "background-soft": {
+        "role": "neutral",
+        "displayName": "Fundo suave",
+        "tonalRamp": [
+          "oklch(15.00% 0.00413 271.37)",
+          "oklch(26.43% 0.00413 271.37)",
+          "oklch(37.86% 0.00413 271.37)",
+          "oklch(49.29% 0.00413 271.37)",
+          "oklch(60.71% 0.00413 271.37)",
+          "oklch(72.14% 0.00413 271.37)",
+          "oklch(83.57% 0.00413 271.37)",
+          "oklch(95.00% 0.00413 271.37)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Branco dos campos",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 0)",
+          "oklch(26.43% 0.00000 0)",
+          "oklch(37.86% 0.00000 0)",
+          "oklch(49.29% 0.00000 0)",
+          "oklch(60.71% 0.00000 0)",
+          "oklch(72.14% 0.00000 0)",
+          "oklch(83.57% 0.00000 0)",
+          "oklch(95.00% 0.00000 0)"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "tonalRamp": [
+          "oklch(15.00% 0.03294 269.15)",
+          "oklch(26.43% 0.03294 269.15)",
+          "oklch(37.86% 0.03294 269.15)",
+          "oklch(49.29% 0.03294 269.15)",
+          "oklch(60.71% 0.03294 269.15)",
+          "oklch(72.14% 0.03294 269.15)",
+          "oklch(83.57% 0.03294 269.15)",
+          "oklch(95.00% 0.03294 269.15)"
+        ]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Tinta secundária",
+        "tonalRamp": [
+          "oklch(15.00% 0.03071 266.32)",
+          "oklch(26.43% 0.03071 266.32)",
+          "oklch(37.86% 0.03071 266.32)",
+          "oklch(49.29% 0.03071 266.32)",
+          "oklch(60.71% 0.03071 266.32)",
+          "oklch(72.14% 0.03071 266.32)",
+          "oklch(83.57% 0.03071 266.32)",
+          "oklch(95.00% 0.03071 266.32)"
+        ]
+      },
+      "text-on-primary": {
+        "role": "neutral",
+        "displayName": "Branco sobre azul",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 0)",
+          "oklch(26.43% 0.00000 0)",
+          "oklch(37.86% 0.00000 0)",
+          "oklch(49.29% 0.00000 0)",
+          "oklch(60.71% 0.00000 0)",
+          "oklch(72.14% 0.00000 0)",
+          "oklch(83.57% 0.00000 0)",
+          "oklch(95.00% 0.00000 0)"
+        ]
+      },
+      "text-on-primary-muted": {
+        "role": "neutral",
+        "displayName": "Texto secundário sobre azul",
+        "tonalRamp": [
+          "oklch(15.00% 0.03649 273.67)",
+          "oklch(26.43% 0.03649 273.67)",
+          "oklch(37.86% 0.03649 273.67)",
+          "oklch(49.29% 0.03649 273.67)",
+          "oklch(60.71% 0.03649 273.67)",
+          "oklch(72.14% 0.03649 273.67)",
+          "oklch(83.57% 0.03649 273.67)",
+          "oklch(95.00% 0.03649 273.67)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Regra fina",
+        "tonalRamp": [
+          "oklch(15.00% 0.01307 266.69)",
+          "oklch(26.43% 0.01307 266.69)",
+          "oklch(37.86% 0.01307 266.69)",
+          "oklch(49.29% 0.01307 266.69)",
+          "oklch(60.71% 0.01307 266.69)",
+          "oklch(72.14% 0.01307 266.69)",
+          "oklch(83.57% 0.01307 266.69)",
+          "oklch(95.00% 0.01307 266.69)"
+        ]
+      },
+      "border-strong": {
+        "role": "neutral",
+        "displayName": "Borda forte",
+        "tonalRamp": [
+          "oklch(15.00% 0.02499 264.40)",
+          "oklch(26.43% 0.02499 264.40)",
+          "oklch(37.86% 0.02499 264.40)",
+          "oklch(49.29% 0.02499 264.40)",
+          "oklch(60.71% 0.02499 264.40)",
+          "oklch(72.14% 0.02499 264.40)",
+          "oklch(83.57% 0.02499 264.40)",
+          "oklch(95.00% 0.02499 264.40)"
+        ]
+      },
+      "border-on-primary": {
+        "role": "neutral",
+        "displayName": "Regra sobre azul",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 0)",
+          "oklch(26.43% 0.00000 0)",
+          "oklch(37.86% 0.00000 0)",
+          "oklch(49.29% 0.00000 0)",
+          "oklch(60.71% 0.00000 0)",
+          "oklch(72.14% 0.00000 0)",
+          "oklch(83.57% 0.00000 0)",
+          "oklch(95.00% 0.00000 0)"
+        ]
+      },
+      "focus": {
+        "role": "primary",
+        "displayName": "Foco de teclado",
+        "tonalRamp": [
+          "oklch(15.00% 0.20189 271.76)",
+          "oklch(26.43% 0.20189 271.76)",
+          "oklch(37.86% 0.20189 271.76)",
+          "oklch(49.29% 0.20189 271.76)",
+          "oklch(60.71% 0.20189 271.76)",
+          "oklch(72.14% 0.20189 271.76)",
+          "oklch(83.57% 0.20189 271.76)",
+          "oklch(95.00% 0.20189 271.76)"
+        ]
+      },
+      "selection": {
+        "role": "primary",
+        "displayName": "Seleção de texto",
+        "tonalRamp": [
+          "oklch(15.00% 0.06576 277.37)",
+          "oklch(26.43% 0.06576 277.37)",
+          "oklch(37.86% 0.06576 277.37)",
+          "oklch(49.29% 0.06576 277.37)",
+          "oklch(60.71% 0.06576 277.37)",
+          "oklch(72.14% 0.06576 277.37)",
+          "oklch(83.57% 0.06576 277.37)",
+          "oklch(95.00% 0.06576 277.37)"
+        ]
+      },
+      "modal-scrim": {
+        "role": "neutral",
+        "displayName": "Véu modal",
+        "tonalRamp": [
+          "oklch(15.00% 0.08026 272.35)",
+          "oklch(26.43% 0.08026 272.35)",
+          "oklch(37.86% 0.08026 272.35)",
+          "oklch(49.29% 0.08026 272.35)",
+          "oklch(60.71% 0.08026 272.35)",
+          "oklch(72.14% 0.08026 272.35)",
+          "oklch(83.57% 0.08026 272.35)",
+          "oklch(95.00% 0.08026 272.35)"
+        ]
+      },
+      "success": {
+        "role": "neutral",
+        "displayName": "Sucesso",
+        "tonalRamp": [
+          "oklch(15.00% 0.07119 152.89)",
+          "oklch(26.43% 0.07119 152.89)",
+          "oklch(37.86% 0.07119 152.89)",
+          "oklch(49.29% 0.07119 152.89)",
+          "oklch(60.71% 0.07119 152.89)",
+          "oklch(72.14% 0.07119 152.89)",
+          "oklch(83.57% 0.07119 152.89)",
+          "oklch(95.00% 0.07119 152.89)"
+        ]
+      },
+      "success-background": {
+        "role": "neutral",
+        "displayName": "Fundo de sucesso",
+        "tonalRamp": [
+          "oklch(15.00% 0.01329 152.60)",
+          "oklch(26.43% 0.01329 152.60)",
+          "oklch(37.86% 0.01329 152.60)",
+          "oklch(49.29% 0.01329 152.60)",
+          "oklch(60.71% 0.01329 152.60)",
+          "oklch(72.14% 0.01329 152.60)",
+          "oklch(83.57% 0.01329 152.60)",
+          "oklch(95.00% 0.01329 152.60)"
+        ]
+      },
+      "success-border": {
+        "role": "neutral",
+        "displayName": "Borda de sucesso",
+        "tonalRamp": [
+          "oklch(15.00% 0.03052 154.61)",
+          "oklch(26.43% 0.03052 154.61)",
+          "oklch(37.86% 0.03052 154.61)",
+          "oklch(49.29% 0.03052 154.61)",
+          "oklch(60.71% 0.03052 154.61)",
+          "oklch(72.14% 0.03052 154.61)",
+          "oklch(83.57% 0.03052 154.61)",
+          "oklch(95.00% 0.03052 154.61)"
+        ]
+      },
+      "error": {
+        "role": "neutral",
+        "displayName": "Erro",
+        "tonalRamp": [
+          "oklch(15.00% 0.12224 25.32)",
+          "oklch(26.43% 0.12224 25.32)",
+          "oklch(37.86% 0.12224 25.32)",
+          "oklch(49.29% 0.12224 25.32)",
+          "oklch(60.71% 0.12224 25.32)",
+          "oklch(72.14% 0.12224 25.32)",
+          "oklch(83.57% 0.12224 25.32)",
+          "oklch(95.00% 0.12224 25.32)"
+        ]
+      },
+      "error-hover": {
+        "role": "neutral",
+        "displayName": "Erro em interação",
+        "tonalRamp": [
+          "oklch(15.00% 0.10965 25.33)",
+          "oklch(26.43% 0.10965 25.33)",
+          "oklch(37.86% 0.10965 25.33)",
+          "oklch(49.29% 0.10965 25.33)",
+          "oklch(60.71% 0.10965 25.33)",
+          "oklch(72.14% 0.10965 25.33)",
+          "oklch(83.57% 0.10965 25.33)",
+          "oklch(95.00% 0.10965 25.33)"
+        ]
+      },
+      "error-background": {
+        "role": "neutral",
+        "displayName": "Fundo de erro",
+        "tonalRamp": [
+          "oklch(15.00% 0.01329 28.87)",
+          "oklch(26.43% 0.01329 28.87)",
+          "oklch(37.86% 0.01329 28.87)",
+          "oklch(49.29% 0.01329 28.87)",
+          "oklch(60.71% 0.01329 28.87)",
+          "oklch(72.14% 0.01329 28.87)",
+          "oklch(83.57% 0.01329 28.87)",
+          "oklch(95.00% 0.01329 28.87)"
+        ]
+      },
+      "error-border": {
+        "role": "neutral",
+        "displayName": "Borda de erro",
+        "tonalRamp": [
+          "oklch(15.00% 0.04317 28.81)",
+          "oklch(26.43% 0.04317 28.81)",
+          "oklch(37.86% 0.04317 28.81)",
+          "oklch(49.29% 0.04317 28.81)",
+          "oklch(60.71% 0.04317 28.81)",
+          "oklch(72.14% 0.04317 28.81)",
+          "oklch(83.57% 0.04317 28.81)",
+          "oklch(95.00% 0.04317 28.81)"
+        ]
+      },
+      "skeleton": {
+        "role": "neutral",
+        "displayName": "Carregamento",
+        "tonalRamp": [
+          "oklch(15.00% 0.01417 268.49)",
+          "oklch(26.43% 0.01417 268.49)",
+          "oklch(37.86% 0.01417 268.49)",
+          "oklch(49.29% 0.01417 268.49)",
+          "oklch(60.71% 0.01417 268.49)",
+          "oklch(72.14% 0.01417 268.49)",
+          "oklch(83.57% 0.01417 268.49)",
+          "oklch(95.00% 0.01417 268.49)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "display",
+        "purpose": "Nome da instituição na abertura."
+      },
+      "display-heritage": {
+        "displayName": "display-heritage",
+        "purpose": "Continuidade serifada do nome na abertura."
+      },
+      "headline": {
+        "displayName": "headline",
+        "purpose": "Títulos das páginas internas."
+      },
+      "section": {
+        "displayName": "section",
+        "purpose": "Títulos das seções públicas."
+      },
+      "title": {
+        "displayName": "title",
+        "purpose": "Subtítulos de leitura e contexto."
+      },
+      "body": {
+        "displayName": "body",
+        "purpose": "Texto corrido."
+      },
+      "body-small": {
+        "displayName": "body-small",
+        "purpose": "Descrições e informação secundária."
+      },
+      "control": {
+        "displayName": "control",
+        "purpose": "Botões e links de ação."
+      },
+      "label": {
+        "displayName": "label",
+        "purpose": "Filtros e navegação."
+      },
+      "caption": {
+        "displayName": "caption",
+        "purpose": "Legendas e metadados."
+      },
+      "admin-headline": {
+        "displayName": "admin-headline",
+        "purpose": "Títulos da área de trabalho."
+      }
+    },
+    "shadows": [
+      {
+        "name": "dialog",
+        "value": "0 30px 100px #05054f40",
+        "purpose": "Única sombra compartilhada; diálogos sobrepostos à página."
+      }
+    ],
+    "motion": [
+      {
+        "name": "transition-fast",
+        "value": "160ms ease",
+        "purpose": "Respostas de cor, fundo e borda de links e botões."
+      },
+      {
+        "name": "transition-normal",
+        "value": "240ms ease",
+        "purpose": "Entrada e saída da barra lateral móvel do painel."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "small",
+        "value": "640px"
+      },
+      {
+        "name": "editorial-columns",
+        "value": "768px"
+      },
+      {
+        "name": "admin-overlay-max",
+        "value": "900px"
+      },
+      {
+        "name": "public-desktop-min",
+        "value": "1001px"
+      },
+      {
+        "name": "wide-refinement",
+        "value": "1180px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botão principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ação principal compartilhada entre páginas e painel.",
+      "html": "<button class=\"ds-primary\">Conheça nossa história<svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></button>",
+      "css": ".ds-primary{display:inline-flex;min-height:46px;align-items:center;justify-content:center;gap:18px;padding:11px 20px;border:1px solid var(--color-primary,#04006c);border-radius:var(--radius-sm,2px);background:var(--color-primary,#04006c);color:var(--color-text-on-primary,#fff);font-family:var(--font-sans,\"Manrope\",sans-serif);font-size:var(--font-size-small,.9375rem);font-weight:600;line-height:1.5;text-align:center;text-decoration:none;cursor:pointer;transition:color var(--transition-fast,160ms ease),background var(--transition-fast,160ms ease),border-color var(--transition-fast,160ms ease);}.ds-primary svg{flex-shrink:0;}.ds-primary:hover{background:var(--color-primary-hover,#17138f);border-color:var(--color-primary-hover,#17138f);}.ds-primary:focus-visible{outline:3px solid var(--color-focus,#3844c8);outline-offset:4px;}.ds-primary:active{background:var(--color-primary-dark,#05054f);}.ds-primary:disabled{cursor:wait;opacity:.55;}"
+    },
+    {
+      "name": "Botão secundário",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Ação de apoio com borda e fundo branco.",
+      "html": "<button class=\"ds-secondary\">Cancelar</button>",
+      "css": ".ds-secondary{display:inline-flex;min-height:46px;align-items:center;justify-content:center;gap:18px;padding:11px 20px;border:1px solid var(--color-primary,#04006c);border-radius:var(--radius-sm,2px);background:var(--color-primary,#04006c);color:var(--color-text-on-primary,#fff);font-family:var(--font-sans,\"Manrope\",sans-serif);font-size:var(--font-size-small,.9375rem);font-weight:600;line-height:1.5;text-align:center;text-decoration:none;cursor:pointer;transition:color var(--transition-fast,160ms ease),background var(--transition-fast,160ms ease),border-color var(--transition-fast,160ms ease);}.ds-secondary svg{flex-shrink:0;}.ds-secondary:hover{background:var(--color-primary-hover,#17138f);border-color:var(--color-primary-hover,#17138f);}.ds-secondary:focus-visible{outline:3px solid var(--color-focus,#3844c8);outline-offset:4px;}.ds-secondary{color:var(--color-primary,#04006c);background:var(--color-background,#fff);border-color:var(--color-border-strong,#9ba3b3);}.ds-secondary:hover{background:var(--color-primary-soft,#f3f5fa);color:var(--color-primary,#04006c);border-color:var(--color-primary,#04006c);}.ds-secondary:disabled{cursor:wait;opacity:.55;}"
+    },
+    {
+      "name": "Link de ação",
+      "kind": "button",
+      "refersTo": "text-link",
+      "description": "Navegação editorial com sublinhado permanente.",
+      "html": "<a class=\"ds-text-link\" href=\"#historia\">Leia a nossa história<svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></a>",
+      "css": ".ds-text-link{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:9px 0;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.25em;color:var(--color-primary,#04006c);font-family:var(--font-sans,\"Manrope\",sans-serif);font-size:var(--font-size-small,.9375rem);font-weight:600;line-height:1.5;transition:color var(--transition-fast,160ms ease),background var(--transition-fast,160ms ease),border-color var(--transition-fast,160ms ease);}.ds-text-link:hover{color:var(--color-primary-hover,#17138f);}.ds-text-link:focus-visible{outline:3px solid var(--color-focus,#3844c8);outline-offset:4px;}"
+    },
+    {
+      "name": "Campo de texto",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Label persistente, borda de interação e erro acessível.",
+      "html": "<label class=\"ds-field\">Nome<input class=\"ds-input\" name=\"name\" placeholder=\"Seu nome\" autocomplete=\"name\" /></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:8px;min-width:0;color:var(--color-text,#202637);font-family:var(--font-sans,\"Manrope\",sans-serif);font-size:var(--font-size-small,.9375rem);font-weight:600;}.ds-input{display:block;width:100%;min-width:0;min-height:46px;padding:12px;border:1px solid var(--color-border-strong,#9ba3b3);border-radius:var(--radius-sm,2px);background:var(--color-surface,#fff);color:var(--color-text,#202637);font-family:var(--font-sans,\"Manrope\",sans-serif);font-size:1rem;font-weight:400;line-height:1.5;caret-color:var(--color-primary,#04006c);}.ds-input::placeholder{color:var(--color-text-muted,#565e70);}.ds-input:hover:not(:focus),.ds-input:focus{border-color:var(--color-primary,#04006c);}.ds-input[aria-invalid=\"true\"]{border-color:var(--color-error,#963c38);}.ds-input:focus-visible{outline:3px solid var(--color-focus,#3844c8);outline-offset:4px;}"
+    },
+    {
+      "name": "Navegação pública",
+      "kind": "nav",
+      "refersTo": "public-nav-link",
+      "description": "Estado ativo por sublinhado e cor; amostra da navegação desktop.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Navegação principal\"><a href=\"#inicio\" aria-current=\"page\">Início</a><a href=\"#historia\">Nossa história</a><a href=\"#galeria\">Galeria</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:var(--space-5,1.25rem);}.ds-nav a{display:inline-flex;align-items:center;min-height:44px;white-space:nowrap;color:var(--color-text-muted,#565e70);font-family:var(--font-sans,\"Manrope\",sans-serif);font-size:var(--font-size-label,.8125rem);text-decoration:none;transition:color var(--transition-fast,160ms ease),background var(--transition-fast,160ms ease),border-color var(--transition-fast,160ms ease);}.ds-nav a:hover,.ds-nav a[aria-current=\"page\"]{color:var(--color-primary,#04006c);}.ds-nav a[aria-current=\"page\"]{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:9px;}.ds-nav a:focus-visible{outline:3px solid var(--color-focus,#3844c8);outline-offset:4px;}@media(min-width:1180px){.ds-nav{gap:var(--space-6,1.5rem)}.ds-nav a{font-size:.875rem;}}"
+    },
+    {
+      "name": "Filtros textuais",
+      "kind": "chip",
+      "refersTo": "filter-tab",
+      "description": "Abas de filtro com seleção por texto, peso e regra inferior.",
+      "html": "<div class=\"ds-filters\" aria-label=\"Tipo de registro\"><button aria-pressed=\"true\">Todos</button><button aria-pressed=\"false\">Fotografias</button><button aria-pressed=\"false\">Vídeos</button></div>",
+      "css": ".ds-filters{display:flex;align-items:center;flex-wrap:wrap;gap:var(--space-2,.5rem) var(--space-4,1rem);}.ds-filters button{display:inline-flex;align-items:center;gap:var(--space-2,.5rem);min-height:44px;padding:var(--space-3,.75rem) 0;background:none;border:0;border-bottom:2px solid transparent;color:var(--color-text-muted,#565e70);font-family:var(--font-sans,\"Manrope\",sans-serif);font-size:var(--font-size-label,.8125rem);cursor:pointer;transition:color var(--transition-fast,160ms ease),background var(--transition-fast,160ms ease),border-color var(--transition-fast,160ms ease);}.ds-filters button[aria-pressed=\"true\"]{color:var(--color-primary,#04006c);border-color:var(--color-primary,#04006c);font-weight:700;}.ds-filters button:hover{color:var(--color-primary,#04006c);}.ds-filters button:focus-visible{outline:3px solid var(--color-focus,#3844c8);outline-offset:4px;}@media(min-width:768px){.ds-filters{gap:var(--space-5,1.25rem);}}"
+    },
+    {
+      "name": "Contêiner do painel",
+      "kind": "card",
+      "refersTo": "admin-card",
+      "description": "Contêiner operacional plano com borda e hierarquia Manrope.",
+      "html": "<section class=\"ds-admin-card\"><div class=\"ds-card-heading\"><h2>Próximos eventos</h2></div><p>Conteúdo cadastrado no painel.</p></section>",
+      "css": ".ds-admin-card{background:var(--color-background,#fff);padding:26px;border:1px solid var(--color-border,#d5d9e2);min-width:0;font-family:var(--font-sans,\"Manrope\",sans-serif);color:var(--color-text,#202637);}.ds-card-heading{display:flex;justify-content:space-between;align-items:start;gap:16px;border-bottom:1px solid var(--color-border,#d5d9e2);padding-bottom:18px;}.ds-admin-card h2{margin:0;font-family:var(--font-sans,\"Manrope\",sans-serif);font-size:1.0625rem;font-weight:600;letter-spacing:-.025em;line-height:1.15;color:var(--color-primary,#04006c);}.ds-admin-card p{color:var(--color-text-muted,#565e70);font-size:var(--font-size-small,.9375rem);line-height:1.75;}@media(max-width:640px){.ds-admin-card{padding:20px;}}"
+    },
+    {
+      "name": "Linha de agenda",
+      "kind": "custom",
+      "refersTo": "event-row",
+      "description": "Estrutura de consulta com data, situação e local; textos da amostra são rótulos de campos.",
+      "html": "<a href=\"#evento\" class=\"ds-event\"><time class=\"ds-event-date\"><strong>DD</strong><span>mês / ano</span></time><div class=\"ds-event-copy\"><span class=\"ds-event-status\">Situação do evento</span><h3>Título do evento</h3></div><div class=\"ds-event-place\"><span>Local cadastrado</span><span>Horário · Brasília</span></div><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></a>",
+      "css": ".ds-event{display:grid;grid-template-columns:62px minmax(0,1fr) 20px;gap:var(--space-3,.75rem) var(--space-4,1rem);align-items:center;padding:var(--space-6,1.5rem) 0;border-bottom:1px solid var(--color-border,#d5d9e2);color:var(--color-text,#202637);text-decoration:none;font-family:var(--font-sans,\"Manrope\",sans-serif);transition:color var(--transition-fast,160ms ease),background var(--transition-fast,160ms ease),border-color var(--transition-fast,160ms ease);}.ds-event:hover{background:var(--color-primary-soft,#f3f5fa);}.ds-event-date{display:flex;flex-direction:column;grid-row:span 2;color:var(--color-primary,#04006c);font-variant-numeric:tabular-nums;}.ds-event-date strong{font-family:var(--font-display,\"Playfair Display\",Georgia,serif);font-size:2.75rem;font-weight:500;line-height:1;}.ds-event-date span{font-size:var(--font-size-caption,.75rem);margin-top:var(--space-2,.5rem);}.ds-event-status{font-size:var(--font-size-caption,.75rem);font-weight:600;color:var(--color-text-muted,#565e70);}.ds-event-copy h3{margin:var(--space-2,.5rem) 0 0;font-family:var(--font-display,\"Playfair Display\",Georgia,serif);font-weight:500;line-height:1.15;color:var(--color-primary,#04006c);font-size:1.375rem;}.ds-event-place{display:flex;flex-direction:column;grid-column:2;gap:var(--space-1,.25rem);font-size:var(--font-size-small,.9375rem);color:var(--color-text-muted,#565e70);overflow-wrap:anywhere;}.ds-event-place span+span{font-size:var(--font-size-caption,.75rem);}.ds-event>svg{grid-column:3;grid-row:1/3;}.ds-event:focus-visible{outline:3px solid var(--color-focus,#3844c8);outline-offset:4px;}@media(min-width:768px){.ds-event{grid-template-columns:88px minmax(0,1.15fr) minmax(0,1fr) 24px;gap:var(--space-6,1.5rem);padding-inline:var(--space-4,1rem);}.ds-event-date{grid-row:auto;}.ds-event-date strong{font-size:3rem;}.ds-event-place,.ds-event>svg{grid-column:auto;grid-row:auto;}}"
+    },
+    {
+      "name": "Índice de capítulos",
+      "kind": "custom",
+      "description": "Navegação direta da leitura de história, com números tabulares.",
+      "html": "<nav class=\"ds-chapters\" aria-label=\"Nesta história\"><a href=\"#origens\"><span>01</span>Origens</a><a href=\"#tradicoes\"><span>02</span>Tradições</a></nav>",
+      "css": ".ds-chapters{padding-block:var(--space-4,1rem);border-block:1px solid var(--color-border,#d5d9e2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 var(--space-4,1rem);}.ds-chapters a{display:flex;align-items:start;gap:var(--space-3,.75rem);min-height:44px;padding-block:var(--space-3,.75rem);color:var(--color-text-muted,#565e70);font-family:var(--font-sans,\"Manrope\",sans-serif);font-size:var(--font-size-label,.8125rem);line-height:1.6;text-decoration:none;transition:color var(--transition-fast,160ms ease),background var(--transition-fast,160ms ease),border-color var(--transition-fast,160ms ease);}.ds-chapters a>span{color:var(--color-primary,#04006c);flex-shrink:0;font-variant-numeric:tabular-nums;}.ds-chapters a:hover{color:var(--color-primary,#04006c);text-decoration:underline;}.ds-chapters a:focus-visible{outline:3px solid var(--color-focus,#3844c8);outline-offset:4px;}@media(min-width:768px){.ds-chapters{display:block;}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Programa de concerto",
+    "overview": "A identidade Editorial Cultural + Modern Heritage apresenta a Charanga com a autoridade de seu nome e de sua marca original. Azul institucional, branco e superfícies frias discretas dão suporte à leitura; a combinação de Manrope com Playfair Display aproxima orientação contemporânea e memória cultural sem simular papel envelhecido.\n\nO sistema distingue leitura e operação. Títulos editoriais, índices diretos e regras finas organizam as páginas públicas; tabelas e formulários do painel usam a mesma paleta com tipografia mais contida. Fotografias publicadas e legendas documentais sustentam o acervo. Quando não há imagem cadastrada, a marca original ou um estado textual explícito ocupa esse lugar.",
+    "keyCharacteristics": [
+      "Azul institucional e branco, com fundos frios discretos.",
+      "Manrope na orientação; Playfair Display nos títulos de leitura.",
+      "Hierarquia editorial, índices diretos e divisórias finas.",
+      "Controles quase retos; superfícies planas e diálogos elevados.",
+      "Marca original e fotografias reais, com contexto e créditos disponíveis."
+    ],
+    "rules": [
+      {
+        "name": "The Azul Autêntico Rule",
+        "body": "Preserve a cor institucional e a imagem original da marca; novas superfícies reutilizam os papéis existentes em vez de introduzir outra paleta de destaque.",
+        "section": "colors"
+      },
+      {
+        "name": "The Duas Vozes Rule",
+        "body": "Use Playfair Display para a leitura editorial e Manrope para a orientação e o trabalho; a abertura combina as duas sem estender sua composição a todas as páginas.",
+        "section": "typography"
+      },
+      {
+        "name": "The Plano Primeiro Rule",
+        "body": "Separe conteúdo com espaço, tonalidade e borda; reserve a elevação existente para janelas que se sobrepõem à página.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve a logomarca original, sua proporção e o azul institucional sobre branco.",
+      "Do use as duas famílias locais de acordo com seus papéis de leitura e operação.",
+      "Do organize conteúdo com hierarquia, espaço e divisórias finas.",
+      "Do mantenha categoria e instrumento como metadados abaixo do respectivo título ou nome.",
+      "Do mantenha foco visível, labels persistentes e estados descritos por texto.",
+      "Do preserve fotografias reais, legendas e créditos disponíveis; mostre a imagem integral na ampliação."
+    ],
+    "donts": [
+      "Don't substitua a marca ou o acervo por imagens artificiais.",
+      "Don't acrescente chamadas decorativas acima dos títulos para simular hierarquia editorial.",
+      "Don't transforme cada seção pública em uma grade de cartões iguais.",
+      "Don't aplique sombras de elevação aos contêineres planos do sistema.",
+      "Don't introduza outra fonte de destaque ou dependências visuais sem uma mudança de identidade autorizada."
+    ]
+  }
+}

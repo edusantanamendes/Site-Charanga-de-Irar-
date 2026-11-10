@@ -7,5 +7,7 @@ frontend/dist/
 uploads/
 test-results/
 playwright-report/
+.impeccable/before/
+.impeccable/review/
 *.log
 *.tgz

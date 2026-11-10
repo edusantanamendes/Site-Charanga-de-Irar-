@@ -3,7 +3,6 @@ import { ArrowUpRight, Play } from "lucide-react";
 import { useSite } from "../contexts/SiteContext";
 import { ButtonLink } from "./UI";
 import { editorialTitle } from "../config/editorial";
-import { MusicalStaff } from "./MusicalIdentity";
 
 export const date = (value, options = {}) =>
   new Intl.DateTimeFormat("pt-BR", {
@@ -93,7 +92,7 @@ export function Invitation() {
 
 export function MediaCard({ item, onClick }) {
   return (
-    <button className="media-card" onClick={onClick}>
+    <button className={`media-card media-card-${item.type}`} onClick={onClick}>
       <span className="media-image">
         {item.type === "video" ? (
           <>
@@ -101,7 +100,6 @@ export function MediaCard({ item, onClick }) {
               <img src={item.thumbnailUrl} alt="" loading="lazy" />
             ) : (
               <span className="video-placeholder">
-                <MusicalStaff />
                 <span>
                   Charanga de Irará
                   <br />
@@ -119,11 +117,11 @@ export function MediaCard({ item, onClick }) {
       </span>
       <span className="media-card-label">
         <span>
+          <strong>{item.title}</strong>
           <small>
             {item.category?.name ||
               (item.type === "video" ? "Vídeo" : "Fotografia")}
           </small>
-          <strong>{item.title}</strong>
         </span>
         <ArrowUpRight size={18} aria-hidden="true" />
       </span>

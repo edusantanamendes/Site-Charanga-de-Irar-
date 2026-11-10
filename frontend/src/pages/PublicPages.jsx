@@ -361,10 +361,10 @@ export function Musicians() {
                     </div>
                   )}
                   <div className="musician-info">
+                    <h2>{item.name}</h2>
                     <span className="musician-instrument">
                       {item.instrument}
                     </span>
-                    <h2>{item.name}</h2>
                     {item.role && <strong>{item.role}</strong>}
                     <p className="preserve-lines">{item.bio}</p>
                   </div>
@@ -403,6 +403,19 @@ export function Contact() {
     "Contato",
     "Fale com a Charanga de Irará sobre apresentações, parcerias e eventos.",
   );
+  const fieldError = (name) =>
+    status.fields.find((item) => item.field === name)?.message;
+  const fieldProps = (name) => ({
+    id: `contact-${name}`,
+    "aria-invalid": !!fieldError(name),
+    "aria-describedby": fieldError(name) ? `contact-${name}-error` : undefined,
+  });
+  const errorMessage = (name) =>
+    fieldError(name) && (
+      <small id={`contact-${name}-error`} className="field-error">
+        {fieldError(name)}
+      </small>
+    );
   async function submit(event) {
     event.preventDefault();
     const form = event.currentTarget;
@@ -440,15 +453,20 @@ export function Contact() {
       />
       <section className="section">
         <div className="container contact-layout">
-          <form onSubmit={submit} className="contact-form">
+          <form
+            onSubmit={submit}
+            className="contact-form"
+            aria-busy={status.sending}
+          >
             <h2>Deixe a sua mensagem</h2>
             <p className="form-intro">
               Os campos marcados com * são obrigatórios.
             </p>
             <div className="form-grid">
-              <label className="field full">
-                Nome completo *
+              <div className="field full">
+                <label htmlFor="contact-name">Nome completo *</label>
                 <input
+                  {...fieldProps("name")}
                   name="name"
                   autoComplete="name"
                   required
@@ -456,10 +474,12 @@ export function Contact() {
                   maxLength="160"
                   placeholder="Como podemos chamar você?"
                 />
-              </label>
-              <label className="field">
-                E-mail *
+                {errorMessage("name")}
+              </div>
+              <div className="field">
+                <label htmlFor="contact-email">E-mail *</label>
                 <input
+                  {...fieldProps("email")}
                   name="email"
                   type="email"
                   autoComplete="email"
@@ -467,20 +487,28 @@ export function Contact() {
                   maxLength="254"
                   placeholder="voce@exemplo.com"
                 />
-              </label>
-              <label className="field">
-                Telefone
+                {errorMessage("email")}
+              </div>
+              <div className="field">
+                <label htmlFor="contact-phone">Telefone</label>
                 <input
+                  {...fieldProps("phone")}
                   name="phone"
                   type="tel"
                   autoComplete="tel"
                   maxLength="40"
                   placeholder="DDD + número"
                 />
-              </label>
-              <label className="field full">
-                Assunto *
-                <select name="subject" required defaultValue="">
+                {errorMessage("phone")}
+              </div>
+              <div className="field full">
+                <label htmlFor="contact-subject">Assunto *</label>
+                <select
+                  {...fieldProps("subject")}
+                  name="subject"
+                  required
+                  defaultValue=""
+                >
                   <option value="" disabled>
                     Selecione o motivo do contato
                   </option>
@@ -494,10 +522,12 @@ export function Contact() {
                     <option key={subject}>{subject}</option>
                   ))}
                 </select>
-              </label>
-              <label className="field full">
-                Mensagem *
+                {errorMessage("subject")}
+              </div>
+              <div className="field full">
+                <label htmlFor="contact-body">Mensagem *</label>
                 <textarea
+                  {...fieldProps("body")}
                   name="body"
                   required
                   minLength="20"
@@ -505,27 +535,38 @@ export function Contact() {
                   rows="5"
                   placeholder="Conte um pouco sobre o seu evento ou como podemos ajudar…"
                 />
-              </label>
+                {errorMessage("body")}
+              </div>
               <div className="honeypot" aria-hidden="true">
                 <label>
                   Website
                   <input name="website" tabIndex="-1" autoComplete="off" />
                 </label>
               </div>
-              <label className="checkbox-field full">
-                <input type="checkbox" name="consent" required />
-                <span>
-                  Autorizo o uso dos meus dados para responder a esta mensagem,
-                  conforme a{" "}
-                  <Link to="/privacidade">política de privacidade</Link>. *
-                </span>
-              </label>
+              <div className="full">
+                <label className="checkbox-field">
+                  <input
+                    {...fieldProps("consent")}
+                    type="checkbox"
+                    name="consent"
+                    required
+                  />
+                  <span>
+                    Autorizo o uso dos meus dados para responder a esta
+                    mensagem, conforme a{" "}
+                    <Link to="/privacidade">política de privacidade</Link>. *
+                  </span>
+                </label>
+                {errorMessage("consent")}
+              </div>
             </div>
             {status.error && (
               <div className="form-alert error" role="alert">
                 {status.error}
                 {status.fields.map((item) => (
-                  <p key={item.field}>{item.message}</p>
+                  <p key={item.field}>
+                    <a href={`#contact-${item.field}`}>{item.message}</a>
+                  </p>
                 ))}
               </div>
             )}

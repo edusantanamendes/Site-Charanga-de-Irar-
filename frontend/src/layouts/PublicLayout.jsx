@@ -39,11 +39,20 @@ export function Brand({ footer = false }) {
 export default function PublicLayout() {
   const [open, setOpen] = useState(false);
   const menuToggle = useRef(null);
+  const main = useRef(null);
+  const previousPath = useRef(null);
   const location = useLocation();
   const { settings, socials } = useSite();
   useEffect(() => {
     setOpen(false);
     window.scrollTo({ top: 0, behavior: "instant" });
+    if (
+      previousPath.current !== null &&
+      previousPath.current !== location.pathname
+    ) {
+      requestAnimationFrame(() => main.current?.focus({ preventScroll: true }));
+    }
+    previousPath.current = location.pathname;
   }, [location.pathname]);
   useEffect(() => {
     const handler = (event) => {
@@ -90,6 +99,7 @@ export default function PublicLayout() {
             aria-controls="menu-mobile"
             onClick={() => setOpen(!open)}
           >
+            <span>{open ? "Fechar" : "Menu"}</span>
             {open ? <X /> : <Menu />}
           </button>
         </div>
@@ -102,13 +112,13 @@ export default function PublicLayout() {
             {[...links, ["/contato", "Contato"]].map(([path, label]) => (
               <NavLink key={path} to={path} end={path === "/"}>
                 {label}
-                <ArrowUpRight size={18} />
+                <ArrowUpRight size={18} aria-hidden="true" />
               </NavLink>
             ))}
           </nav>
         )}
       </header>
-      <main id="conteudo" className="public-main" tabIndex="-1">
+      <main ref={main} id="conteudo" className="public-main" tabIndex="-1">
         <Outlet />
       </main>
       <footer className="footer">

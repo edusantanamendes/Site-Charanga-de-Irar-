@@ -4,8 +4,6 @@ import "@fontsource/manrope/latin-500.css";
 import "@fontsource/manrope/latin-600.css";
 import "@fontsource/manrope/latin-700.css";
 import "@fontsource/playfair-display/latin-500.css";
-import "@fontsource/playfair-display/latin-600.css";
-import "@fontsource/playfair-display/latin-500-italic.css";
 import "./styles/index.css";
 import App from "./App";
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);

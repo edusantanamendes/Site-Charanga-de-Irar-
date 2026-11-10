@@ -13,6 +13,9 @@
 body {
   margin: 0;
 }
+html {
+  scrollbar-color: var(--color-border-strong) var(--color-background-soft);
+}
 button,
 input,
 select,
@@ -37,6 +40,7 @@ button:disabled,
 a {
   color: inherit;
   text-decoration: none;
+  text-underline-offset: 0.25em;
 }
 img,
 svg {
@@ -60,6 +64,7 @@ h3 {
   line-height: 1.15;
   color: var(--color-primary);
   overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 p {
   line-height: var(--line-height-body);
@@ -152,6 +157,9 @@ main:focus {
   background: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
 }
+.button:active {
+  background: var(--color-primary-dark);
+}
 .button svg {
   flex-shrink: 0;
 }
@@ -168,10 +176,11 @@ main:focus {
 .text-link {
   display: inline-flex;
   align-items: center;
-  gap: 18px;
+  gap: 12px;
   min-height: 44px;
   padding-block: 9px;
-  border-bottom: 1px solid var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
   color: var(--color-primary);
   font-size: var(--font-size-small);
   font-weight: 600;
@@ -179,6 +188,9 @@ main:focus {
 .text-link:hover {
   border-color: var(--color-border-strong);
   color: var(--color-primary-hover);
+}
+.text-link svg {
+  flex-shrink: 0;
 }
 .text-button {
   border: 0;
@@ -284,7 +296,7 @@ main:focus {
   border-radius: var(--radius-sm);
   background: var(--color-surface);
   color: var(--color-text);
-  font-size: var(--font-size-small);
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -295,6 +307,9 @@ main:focus {
   resize: vertical;
 }
 .field :is(input, select, textarea):focus {
+  border-color: var(--color-primary);
+}
+.field :is(input, select, textarea):hover:not(:focus) {
   border-color: var(--color-primary);
 }
 .field small,
@@ -311,7 +326,8 @@ main:focus {
 .field [aria-invalid="true"] {
   border-color: var(--color-error);
 }
-.field-error {
+.field-error,
+.field small.field-error {
   color: var(--color-error);
   font-size: var(--font-size-small);
 }
@@ -319,7 +335,7 @@ main:focus {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: var(--font-size-caption);
+  font-size: var(--font-size-small);
   line-height: 1.8;
   color: var(--color-text-muted);
 }
@@ -426,6 +442,7 @@ main:focus {
 }
 .lightbox-caption > span {
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 .lightbox-controls {
   display: flex;

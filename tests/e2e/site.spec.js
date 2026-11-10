@@ -461,6 +461,7 @@ test("admin cria, publica, edita e exclui um evento com confirmação", async ({
     `Evento E2E ${testInfo.project.name}`,
   );
   await expect(page.locator(".event-facts")).toContainText("06:00");
+  await capture(page, testInfo, "event-detail");
   await page.goto("/admin/events");
   await page
     .getByRole("button", {
